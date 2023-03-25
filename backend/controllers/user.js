@@ -12,6 +12,7 @@ const Publication = require("../models/publication");
 // Importar Servicios
 const jwt = require("../services/jwt")
 const followingServices = require("../services/followService")
+const validate = require("../helpers/validate")
 
 // Acciones de prueba
 const pruebaUser = (req, res) => {
@@ -34,6 +35,16 @@ const register = (req, res) => {
         })
     }
 
+    // Validación avanzada
+    try{
+        validate(params)   
+    } catch(error) {
+        return res.status(400).json({
+            status: "Error",
+            message: "Validación no superada"
+        })
+    }
+   
     // Control usuarios duplicados
     User.find({
         $or: [
