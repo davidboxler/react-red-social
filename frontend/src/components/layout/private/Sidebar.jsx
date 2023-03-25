@@ -62,10 +62,8 @@ export const Sidebar = () => {
                 setStored("error")
             }
 
-            if(data.status = "success" && uploadData.status == "success"){
-                const myForm = document.querySelector('#publication-form')
-                myForm.reset();
-            }
+            const myForm = document.querySelector('#publication-form')
+            myForm.reset();
         }
     }
 
@@ -87,7 +85,7 @@ export const Sidebar = () => {
                         </div>
 
                         <div className="general-info__container-names">
-                            <Link to={"/social/perfil/"+auth._id} className="container-names__name">{auth.name} {auth.surname}</Link>
+                            <Link to={"/social/perfil/" + auth._id} className="container-names__name">{auth.name} {auth.surname}</Link>
                             <p className="container-names__nickname">{auth.nick}</p>
                         </div>
 
@@ -110,7 +108,7 @@ export const Sidebar = () => {
                         </div>
 
                         <div className="stats__following">
-                            <Link to={"/social/perfil/"+auth._id} className="following__link">
+                            <Link to={"/social/perfil/" + auth._id} className="following__link">
                                 <span className="following__title">Publicaciones</span>
                                 <span className="following__number">{counters.publications}</span>
                             </Link>

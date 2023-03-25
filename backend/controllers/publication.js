@@ -21,7 +21,7 @@ const save = (req, res) => {
     const params = req.body
 
     // Si no me llega dar respuesta negativa
-    if (!params.text) return res.status(400).send({ status: "error", message: "Debes enviar el testo de la publicacion" })
+    if (!params.text) return res.status(400).send({ status: "error", message: "Debes enviar el texto de la publicacion" })
 
     // Crear y rellenar el objeto del modelo
     let newPublication = new Publication(params)
@@ -214,12 +214,12 @@ const feed = async (req, res) => {
         const myFollows = await followService.followUserIds(req.user.id)
 
         // Find a publicaciones in, ordenar, popular, paginar
-        const publications = await Publication.find({ user: myFollows.following })
-            .populate("user", "password -role -__v -email")
+        const publications = Publication.find({ user: myFollows.following })
+            .populate("user", "-password -role -__v -email")
             .sort("-created_at")
             .paginate(page, itemsPerPage, (error, publications, total) => {
 
-                if(error || !publications){
+                 if(error || !publications){
                     return res.status(500).send({
                         status: "error",
                         message: "No hay publicaciones para mostrar"
@@ -234,8 +234,8 @@ const feed = async (req, res) => {
                     page,
                     pages: Math.ceil(total / itemsPerPage),
                     publications
-                })
-            })
+                });
+            });
     } catch (error) {
         return res.status(500).send({
             status: "error",
