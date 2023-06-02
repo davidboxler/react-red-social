@@ -125,12 +125,12 @@ export const Sidebar = () => {
                     <form id='publication-form' className="container-form__form-post" onSubmit={savePublication}>
 
                         <div className="form-post__inputs">
-                            <label htmlFor="text" className="form-post__label">¿Que estas pesando hoy?</label>
+                            <label className="form-post__label">¿Que estas pesando hoy?</label>
                             <textarea name="text" className="form-post__textarea" onChange={changed} />
                         </div>
 
                         <div className="form-post__inputs">
-                            <label htmlFor="file" className="form-post__label">Sube tu foto</label>
+                            <label className="form-post__label">Sube tu foto</label>
                             <input type="file" name="file0" id='file' className="form-post__image" />
                         </div>
 

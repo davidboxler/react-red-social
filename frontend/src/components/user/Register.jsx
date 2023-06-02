@@ -49,27 +49,27 @@ export const Register = () => {
                 <form className='register-form' onSubmit={saveUser}>
 
                     <div className='form-group'>
-                        <label htmlFor='name'>Nombre</label>
+                        <label>Nombre</label>
                         <input type="text" name='name' onChange={changed} />
                     </div>
 
                     <div className='form-group'>
-                        <label htmlFor='surname'>Apellido</label>
+                        <label>Apellido</label>
                         <input type="text" name='surname' onChange={changed} />
                     </div>
 
                     <div className='form-group'>
-                        <label htmlFor='nick'>Nick</label>
+                        <label>Nick</label>
                         <input type="text" name='nick' onChange={changed} />
                     </div>
 
                     <div className='form-group'>
-                        <label htmlFor='email'>Correo electronico</label>
+                        <label>Correo electronico</label>
                         <input type="email" name='email' onChange={changed} />
                     </div>
 
                     <div className='form-group'>
-                        <label htmlFor='password'>Contraseña</label>
+                        <label>Contraseña</label>
                         <input type="password" name='password' onChange={changed} />
                     </div>
 

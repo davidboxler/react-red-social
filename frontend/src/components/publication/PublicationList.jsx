@@ -51,7 +51,7 @@ export const PublicationList = ({ publications, getPublications, page, setPage, 
                                     <div className="post__user-info">
                                         <a href="#" className="user-info__name">{publication.user.name + " " + publication.user.surname}</a>
                                         <span className="user-info__divider"> | </span>
-                                        <a href="#" className="user-info__create-date"><ReactTimeAgo date={publication.created_at} locale="es-ES" /></a>
+                                        <a href="#" className="user-info__create-date"><ReactTimeAgo date={Date.parse(publication.created_at)} locale="es-ES" /></a>
                                     </div>
                                     <h4 className="post__content">{publication.text}</h4>
                                     {publication.file && <img src={Global.url + 'publication/media/' + publication.file} />}

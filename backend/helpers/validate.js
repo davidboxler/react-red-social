@@ -17,17 +17,17 @@ const validate = (params) => {
 
     let password = !validator.isEmpty(params.password)
 
-    if(params.bio) {
-        let bio = validator.isLength(params.bio, { min: undefined, max: 255 })
+    // if(params.bio) {
+    //     let bio = validator.isLength(params.bio, { min: undefined, max: 255 })
 
-        if (!bio) {
-            throw new Error("No se ha superado la validación")
-        } else {
-            console.log("Validación superada")
-        }
-    }
+    //     if (!bio) {
+    //         throw new Error("No se ha superado la validación")
+    //     } else {
+    //         console.log("Validación superada")
+    //     }
+    // }
 
-    if (!name || !surname || !nick || !email || !password || !bio) {
+    if (!name || !surname || !nick || !email || !password) {
         throw new Error("No se ha superado la validación")
     } else {
         console.log("Validación superada")
