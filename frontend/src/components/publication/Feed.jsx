@@ -49,7 +49,7 @@ export const Feed = () => {
             }
 
             if (data.pages <= 1) {
-                setMore(1)
+                setMore(false)
             }
         }
     }

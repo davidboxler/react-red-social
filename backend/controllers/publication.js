@@ -159,7 +159,7 @@ const upload = (req, res) => {
     }
 
     // Si es correcto guardar la imagen
-    Publication.findOneAndUpdate({ "user": req.user.id, "_id": publicationId }, { image: req.file.filename }, { new: true }, (error, publicationUpdated) => {
+    Publication.findOneAndUpdate({ "user": req.user.id, "_id": publicationId }, { file: req.file.filename }, { new: true }, (error, publicationUpdated) => {
         if (error || !publicationUpdated) {
             return res.status(500).send({
                 status: "error",
@@ -182,7 +182,7 @@ const media = (req, res) => {
     const file = req.params.file
 
     // Montar el path real de la imagen
-    const filePath = "./uploads/avatars/" + file
+    const filePath = "./uploads/publications/" + file
 
     // Comprobar que existe
     fs.stat(filePath, (error, exists) => {
